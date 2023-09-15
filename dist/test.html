@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- تضمين رابط Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    direction: rtl; /* تغيير اتجاه الصفحة */
+  }
+
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    flex-direction: row-reverse; /* تغيير اتجاه العناصر في الصفحة */
+  }
+
+  .product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+    flex: 0 0 calc(33.33% - 20px);
+  }
+
+  .footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .icon {
+    font-size: 24px;
+    margin-right: 20px; /* زيادة المسافة بين الأيقونات */
+    position: relative;
+    display: inline-block;
+    transition: background-color 0.3s ease; /* تحويل اللون بانتقال سلس */
+  }
+  .icon:hover {
+    background-color: #444; /* لون الفوتر أثناء التحويل */
+  }
+  .count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+  }
+  .cart-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+  }
+  .cart-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 80%;
+    max-height: 80%;
+    overflow: auto;
+  }
+  .cart-content ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .cart-content ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .cart-content ul li span {
+    font-weight: bold;
+  }
+
+  .cart-content ul li button {
+    color: red;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  .delete-icon {
+  color: red;
+  font-size: 24px;
+}
+</style>
+</head>
+<body>
+  <header>
+    <h1>متجر مواد غذائية</h1>
+  </header>
+  <div class="container">
+    <div class="category" onclick="toggleSubcategory('drinks')">المشروبات</div>
+    <div class="category" onclick="toggleSubcategory('sweets')">الحلويات</div>
+  </div>
+  <div class="subcategories" id="drinksSubcategories">
+    <h2>المشروبات</h2>
+    <div class="product" onclick="addToCart('شاي')">شاي</div>
+    <div class="product" onclick="addToCart('قهوة')">قهوة</div>
+    <div class="product" onclick="addToCart('عصير')">عصير</div>
+  </div>
+  <div class="subcategories" id="sweetsSubcategories">
+    <h2>الحلويات</h2>
+    <div class="product" onclick="addToCart('كعك')">كعك</div>
+    <div class="product" onclick="addToCart('حلوى')">حلوى</div>
+    <div class="product" onclick="addToCart('بسكويت')">بسكويت</div>
+  </div>
+  <div class="footer">
+    <p>
+      <i class="fas fa-chart-line icon"></i>
+      <i class="fas fa-home icon"></i>
+      <i class="fas fa-headset icon"></i>
+      <i class="fas fa-shopping-cart icon" id="openCartModal">
+        <span class="count" id="cartCount">0</span>
+      </i>
+    </p>
+  </div>
+  
+  <!-- واجهة استخدام عرض محتويات السلة -->
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-content">
+      <h2>محتويات السلة</h2>
+      <ul id="cartItems"></ul>
+      <button onclick="clearCart()" style="border: 1px solid #333; padding: 10px; background-color: #fff; ">حذف الكل</button>
+      <button onclick="closeCart()" style="border: 1px solid #333; padding: 10px; background-color: #fff; ">إغلاق</button>
+    </div>
+  </div>
+  
+  <script>
+    let cartCount = 0;
+    let cartItems = [];
+
+    function addToCart(productName) {
+      cartCount++;
+      const existingItem = cartItems.find(item => item.name === productName);
+      if (existingItem) {
+        existingItem.quantity++;
+      } else {
+        cartItems.push({ name: productName, quantity: 1 });
+      }
+      document.getElementById("cartCount").textContent = cartCount;
+      alert("تمت إضافة " + productName + " إلى السلة!");
+    }
+
+    
+    function openCart() {
+  const cartModal = document.getElementById("cartModal");
+  const cartItemsList = document.getElementById("cartItems");
+  cartItemsList.innerHTML = '';
+
+  for (let i = 0; i < cartItems.length; i++) {
+    const listItem = document.createElement("li");
+    listItem.innerHTML = `
+      ${cartItems[i].name} (الكمية: <input type="number" id="quantity_${i}" value="${cartItems[i].quantity}" min="1" oninput="updateCartItemQuantity(${i}, this.value)">)
+      <button onclick="removeCartItem(${i})"><i class="fas fa-trash"></i></button>
+    `;
+    cartItemsList.appendChild(listItem);
+  }
+
+  // حساب وعرض عدد الأصناف المختلفة في السلة على الأيقونة
+  const uniqueItemsCount = cartItems.reduce((total, item) => total + 1, 0);
+  document.getElementById("cartCount").textContent = uniqueItemsCount;
+
+  const sendOrderButton = document.createElement("button");
+  sendOrderButton.textContent = "إرسال الطلبات";
+  sendOrderButton.onclick = sendOrder;
+  cartItemsList.appendChild(sendOrderButton);
+
+  cartModal.style.display = "flex";
+}
+function clearCart() {
+  cartItems = []; // تفريغ السلة
+  updateCartCount(); // تحديث عدد الأصناف على الأيقونة
+  openCart(); // فتح واجهة السلة لتظهر فارغة
+}
+
+  function updateCartItemQuantity(index, newQuantity) {
+    newQuantity = parseInt(newQuantity);
+    if (!isNaN(newQuantity) && newQuantity >= 1) {
+      cartItems[index].quantity = newQuantity;
+      updateCartCount();
+    }
+  }
+
+  function sendOrder() {
+    const phoneNumber = prompt("يرجى إدخال رقم الهاتف للتواصل عبر الواتساب:");
+    if (phoneNumber) {
+      const message = generateOrderMessage();
+      const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappLink, "_blank");
+    }
+  }
+
+  function generateOrderMessage() {
+    let message = "الطلبات:%0A";
+    for (let i = 0; i < cartItems.length; i++) {
+      message += `${cartItems[i].name} (الكمية: ${cartItems[i].quantity})%0A`;
+    }
+    return message;
+  }
+
+    function closeCart() {
+      const cartModal = document.getElementById("cartModal");
+      cartModal.style.display = "none";
+    }
+
+    function removeCartItem(index) {
+      cartItems.splice(index, 1);
+      updateCartCount();
+      openCart();
+    }
+
+    function updateCartCount() {
+      cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+      document.getElementById("cartCount").textContent = cartCount;
+    }
+
+    document.getElementById("openCartModal").addEventListener("click", openCart);
+
+
+
+
+      function showSubcategory(subcategory) {
+      const subcategoryElement = document.getElementById(subcategory + "Subcategories");
+      const subcategoryElements = document.getElementsByClassName("subcategories");
+      for (let i = 0; i < subcategoryElements.length; i++) {
+        subcategoryElements[i].style.display = "none";
+      }
+      subcategoryElement.style.display = "block";
+    }
+
+
+    
+  </script>
+</body>
+</html>

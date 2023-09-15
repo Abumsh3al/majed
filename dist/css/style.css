@@ -1,0 +1,49 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400&display=swap');
+*{
+    font-family: 'Alexandria', sans-serif;
+    font-size: small;
+}
+
+.svg-icon {
+    width: 3em;
+    height: 3em;
+  }
+  
+  .svg-icon path,
+  .svg-icon polygon,
+  .svg-icon rect {
+    fill: #444;
+  }
+  
+  .svg-icon circle {
+    stroke: #333;
+    stroke-width: 1;
+  }
+  .footer {
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .cart-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    position: relative;
+    display: inline-block;
+  }
+  .cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+  }

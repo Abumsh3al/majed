@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <link rel="stylesheet" href="css/output.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body class="bg-[#FEF2F4] font-majed h-screen relative">
+    <header id="heder_btn" class="flex flex-row flex-wrap justify-center items-center p-4 pt-14">
+        <div class="bg-[#FFABAB] p-8 rounded-lg shadow-md w-full sm:w-96">
+            <h1 class="text-[#E6FFFD] pb-6">مرحبا بك .. اختر القسم ثم اضف طلباتك الى السلة</h1>
+            <form class="flex flex-row flex-wrap">
+                <input type="text" id="search" name="search"
+                    class="mt-1 p-2 w-full border rounded-md focus:ring focus:ring-indigo-300"
+                    placeholder="أبحث هنا .. ">
+        </div>
+        <div>
+        </div>
+        </form>
+        </div>
+        </div>
+    </header>
+
+    <div id="home_btn">
+        <div class="container m-auto  flex flex-wrap justify-center items-center">
+            <button onclick="vig()"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                خضار وفواكه
+            </button>
+            <div
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                القهوة والمكسرات</div>
+            <div onclick="upermarct_btn()"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                السوبر ماركت</div>
+            <div
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                الصيدلية</div>
+            <div
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                المكتبة</div>
+            <div
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                العطارة</div>
+            <div
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                المستودعات</div>
+            <div
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                مستلزمات منزلية</div>
+            <div
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                ادوات ومعدات</div>
+            <div
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                العناية الشخصية</div>
+
+        </div>
+
+    </div>
+
+
+    <div id="vig" class="hidden">
+        <div class="container m-auto  flex flex-wrap justify-center items-center">
+            <div id="outputDiv"></div>
+            <button onclick="addRow(this)" id="button1"
+                class=" w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                موز</button>
+            <button onclick="addRow(this)" id="button2"
+                class="Item w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                برتقال</button>
+            <div onclick="addRow(this)" id="button3"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                تفاح</div>
+            <div onclick="addRow(this)" id="button4"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                يوسف</div>
+            <div onclick="addRow(this)" id="button5"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                جزر</div>
+            <div onclick="addRow(this)" id="button6"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                خس</div>
+            <div onclick="addRow(this)" id="button7"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                بصل</div>
+            <div onclick="addRow(this)" id="button8"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                طماطم</div>
+            <div onclick="addRow(this)" id="butto9n"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                بطاطس</div>
+            <div onclick="addRow(this)" id="button10"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                خيار</div>
+
+        </div>
+    </div>
+
+
+    <div id="supermarct" class="hidden">
+        <div class="container m-auto  flex flex-wrap justify-center items-center">
+            <div id="outputDiv"></div>
+            <button onclick="addRow(this)" id="button1"
+                class=" w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                رز</button>
+            <button onclick="addRow(this)" id="button2"
+                class="Item w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                عصير</button>
+            <div onclick="addRow(this)" id="button3"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                لبن</div>
+            <div onclick="addRow(this)" id="button4"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                سكر</div>
+            <div onclick="addRow(this)" id="button5"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                ملح</div>
+            <div onclick="addRow(this)" id="button6"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                خليط كيك</div>
+            <div onclick="addRow(this)" id="button7"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                بطاطس شبس</div>
+            <div onclick="addRow(this)" id="button8"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                كندر</div>
+            <div onclick="addRow(this)" id="butto9n"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                طحين</div>
+            <div onclick="addRow(this)" id="button10"
+                class="w-[40%] h-20 border flex justify-center items-center m-2 text-center bg-[#D14D72] rounded-2xl shadow-md text-[#FEF2F4]">
+                ماء</div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- الطلبات -->
+
+    <button onclick="order()" class="pt-10  flex-row flex-wrap items-center justify-center hidden">
+        <div class="bg-white border p-9 h-[70vh] w-[90%] mx-auto rounded-2xl relative">
+            <div class="absolute top-0 left-2 p-4"><a href="./index.html"><svg class="svg-icon" viewBox="0 0 20 20">
+                        <path fill="none"
+                            d="M12.71,7.291c-0.15-0.15-0.393-0.15-0.542,0L10,9.458L7.833,7.291c-0.15-0.15-0.392-0.15-0.542,0c-0.149,0.149-0.149,0.392,0,0.541L9.458,10l-2.168,2.167c-0.149,0.15-0.149,0.393,0,0.542c0.15,0.149,0.392,0.149,0.542,0L10,10.542l2.168,2.167c0.149,0.149,0.392,0.149,0.542,0c0.148-0.149,0.148-0.392,0-0.542L10.542,10l2.168-2.168C12.858,7.683,12.858,7.44,12.71,7.291z M10,1.188c-4.867,0-8.812,3.946-8.812,8.812c0,4.867,3.945,8.812,8.812,8.812s8.812-3.945,8.812-8.812C18.812,5.133,14.867,1.188,10,1.188z M10,18.046c-4.444,0-8.046-3.603-8.046-8.046c0-4.444,3.603-8.046,8.046-8.046c4.443,0,8.046,3.602,8.046,8.046C18.046,14.443,14.443,18.046,10,18.046z">
+                        </path>
+                    </svg></a></div>
+            <!-- الفاتورة -->
+            <h1 class="w-full text-center p-4 text-lg = ">الطلبات</h1>
+         
+
+
+        </div>
+
+    </button>
+    <!-- نهاية الطلبات -->
+
+
+    <div id="order_btn" class="pt-10  flex-row flex-wrap items-center justify-center hidden">
+        <div class="bg-white border p-9 h-[70vh] w-[90%] mx-auto rounded-2xl relative">
+            <div class="absolute top-0 left-2 p-4"><a href="./index.html"><svg class="svg-icon" viewBox="0 0 20 20">
+                        <path fill="none"
+                            d="M12.71,7.291c-0.15-0.15-0.393-0.15-0.542,0L10,9.458L7.833,7.291c-0.15-0.15-0.392-0.15-0.542,0c-0.149,0.149-0.149,0.392,0,0.541L9.458,10l-2.168,2.167c-0.149,0.15-0.149,0.393,0,0.542c0.15,0.149,0.392,0.149,0.542,0L10,10.542l2.168,2.167c0.149,0.149,0.392,0.149,0.542,0c0.148-0.149,0.148-0.392,0-0.542L10.542,10l2.168-2.168C12.858,7.683,12.858,7.44,12.71,7.291z M10,1.188c-4.867,0-8.812,3.946-8.812,8.812c0,4.867,3.945,8.812,8.812,8.812s8.812-3.945,8.812-8.812C18.812,5.133,14.867,1.188,10,1.188z M10,18.046c-4.444,0-8.046-3.603-8.046-8.046c0-4.444,3.603-8.046,8.046-8.046c4.443,0,8.046,3.602,8.046,8.046C18.046,14.443,14.443,18.046,10,18.046z">
+                        </path>
+                    </svg></a></div>
+            <!-- الفاتورة -->
+            <h1 class="w-full text-center p-4 text-lg ">الطلبات</h1>
+            <table class="w-full">
+                <thead>
+                    <tr>
+                        <th class="text-center border-b py-4">الصنف</th>
+                        <th class="text-center border-b py-4">الكمية</th>
+                        <th class="text-center border-b py-4">حذف</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        
+                    </tr>
+                </tbody>
+          
+
+            </table>
+            <button type="submit" class="p-4 px-8 bg-red-500 mt-4 text-white rounded-full shadow">ارسال الطالبات</button>
+            <button type="submit" onclick="deletList()" class="p-4 px-8 bg-red-500 mt-4 text-white rounded-full shadow">مسح الطالبات</button>
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+    <!-- نهاية الفاتورة -->
+
+
+
+    <footer
+        class="bg-[#FCC8D1] h-18 w-full border-t-2 border-t-[#D14D72] absolute bottom-0 flex justify-between items-center ">
+        <button onclick="menu()" class="w-10 m-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                class="bi bi-house-fill text-[#fff] " viewBox="0 0 16 16">
+                <path
+                    d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
+                <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
+            </svg>
+
+        </button>
+        <div class="w-10 ml-20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                class="bi bi-person-gear text-[#fff]" viewBox="0 0 16 16">
+                <path
+                    d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Zm3.63-4.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" />
+            </svg>
+
+        </div>
+        <div class="w-10 mr-20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                class="bi bi-person-vcard text-[#fff]" viewBox="0 0 16 16">
+                <path
+                    d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5ZM9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8Zm1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z" />
+                <path
+                    d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96c.026-.163.04-.33.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1.006 1.006 0 0 1 1 12V4Z" />
+            </svg>
+        </div>
+
+        <!-- <button onclick="order()"
+            class=" border-[#D14D72] border-2 rounded-full p-3 absolute right-[40%] bottom-1 bg-[#fff] ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="text-[#35155D]"
+                viewBox="0 0 16 16">
+                <path
+                    d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z" />
+                <path
+                    d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z" />
+            </svg>
+            <div class="bg-red-600 rounded-full w-8 h-8 " id="number_cart">1</div>
+        </button> -->
+        <div class="footer">
+            <p onclick="order()">
+                    <i class="fas fa-shopping-cart cart-icon">
+                <span class="cart-count" id="cartCount">0</span>
+              </i>
+            </p>
+          </div>
+
+
+
+
+
+
+          <script>
+            let cartCount = 0;
+        
+            function addToCart(productName) {
+              cartCount++;
+              document.getElementById("cartCount").textContent = cartCount;
+              alert("تمت إضافة " + productName + " إلى السلة!");
+            }
+          </script>
+
+        <button class="w-10 m-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                class="bi bi-send-fill text-[#fff]" viewBox="0 0 16 16">
+                <path
+                    d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" />
+            </svg>
+
+        </button>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
